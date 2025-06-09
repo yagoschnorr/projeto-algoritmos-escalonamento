@@ -72,13 +72,13 @@ def corrida_algoritmos():
     st.divider()
 
     if algoritmo == 'FIFO':
-        st.write(f'#### Iniciando corrida com o algoritmo FIFO')
         escalonamento_fifo(processos)
     elif algoritmo == 'Prioridade':
-        st.write(f'#### Iniciando corrida com o algoritmo de Prioridade')
         escalonamento_prioridade(processos)
 
 def escalonamento_fifo(processos):
+    st.write(f'#### Iniciando corrida com o algoritmo FIFO')
+
     barras = []
     for processo in processos:
         barras.append([processo[0], ['🟥' for _ in range(processo[1])]])
@@ -102,6 +102,8 @@ def escalonamento_fifo(processos):
     st.success(f'##### O vencedor  da corrida foi o processo {ganhador} 🏆🏆🏆')
 
 def escalonamento_prioridade(processos):
+    st.write(f'#### Iniciando corrida com o algoritmo de Prioridade')
+
     for i in range(len(processos)-1):
         min_indice = i
         for j in range(i+1, len(processos)):
